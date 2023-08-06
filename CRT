@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quote-container">
+        <blockquote id="quote">Loading...</blockquote>
+        <button id="new-quote-btn">New Quote</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+const quotes = [
+    "The only way to do great work is to love what you do. - Steve Jobs",
+    "Life is what happens when you're busy making other plans. - John Lennon",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
+    "It always seems impossible until it is done. - Nelson Mandela",
+    "In the end, we will remember not the words of our enemies, but the silence of our friends. - Martin Luther King Jr.",
+    "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it. - Jordan Belfort",
+    "You have within you right now, everything you need to deal with whatever the world can throw at you. - Brian Tracy",
+    "The pessimist sees difficulty in every opportunity. The optimist sees the opportunity in every difficulty. - Winston Churchill",
+    "Your time is limited, don't waste it living someone else's life. - Steve Jobs"
+];
+
+const quoteElement = document.getElementById("quote");
+const newQuoteBtn = document.getElementById("new-quote-btn");
+
+function getRandomQuote() {
+    return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+function displayRandomQuote() {
+    const randomQuote = getRandomQuote();
+    quoteElement.textContent = randomQuote;
+}
+
+newQuoteBtn.addEventListener("click", displayRandomQuote);
+
+// Display a random quote when the page loads
+displayRandomQuote();
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quote-container {
+    max-width: 400px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+blockquote {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#new-quote-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+}
